@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcadito - Juego de Palabras</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 AHORCADITO 🎮</h1>
+            <p class="subtitle">Adivina la palabra antes de que se complete el dibujo</p>
+        </header>
+
+        <main>
+            <div class="game-container">
+                <!-- Sección del ahorcado -->
+                <div class="hangman-section">
+                    <pre class="hangman-drawing" id="hangmanDrawing"></pre>
+                    <p class="attempts">Intentos: <span id="attempts">0</span>/<span id="maxAttempts">6</span></p>
+                </div>
+
+                <!-- Sección de la palabra -->
+                <div class="word-section">
+                    <div class="word-display" id="wordDisplay">_ _ _ _ _</div>
+                    <p class="word-hint">Palabra: <span id="wordLength">5</span> letras</p>
+                    <p class="hint-text">Pista: <span id="hintText">-</span></p>
+                </div>
+
+                <!-- Sección de letras incorrectas -->
+                <div class="incorrect-section">
+                    <p class="incorrect-label">Letras incorrectas:</p>
+                    <div class="incorrect-letters" id="incorrectLetters">-</div>
+                </div>
+
+                <!-- Sección de mensaje -->
+                <div class="message-section">
+                    <p id="message" class="message"></p>
+                </div>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="stats-section">
+                <h3>ℹ️ Cómo Jugar</h3>
+                <ul>
+                    <li>Tienes 6 intentos para adivinar la palabra</li>
+                    <li>Adivina una letra por vez</li>
+                    <li>Cada letra incorrecta suma un intento</li>
+                    <li>¡Gana adivinando la palabra antes de 7 intentos!</li>
+                </ul>
+                <div class="controls-box">
+                    <div class="input-section">
+                        <input 
+                            type="text" 
+                            id="letterInput" 
+                            maxlength="1" 
+                            placeholder="Ingresa una letra..."
+                            autocomplete="off"
+                        >
+                        <button id="guessButton" onclick="adivinarLetra()">ADIVINAR</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="newGameButton" onclick="nuevoJuego()" class="btn-primary">Nuevo Juego</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "buildCommand": "pip install -r requirements.txt",
+  "devCommand": "python app.py",
+  "framework": "flask"
+}{
+  "version": 2,
+  "buildCommand": "pip install -r requirements.txt",
+  "devCommand": "python app.py",
+  "framework": "flask"
+}
