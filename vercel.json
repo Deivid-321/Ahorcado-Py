@@ -1,12 +1,24 @@
 {
   "version": 2,
-  "buildCommand": "pip install -r requirements.txt",
-  "devCommand": "python app.py",
-  "framework": "flask"
-}
-{
-  "version": 2,
-  "buildCommand": "pip install -r requirements.txt",
-  "devCommand": "python app.py",
-  "framework": "flask"
+  "name": "ahorcadito",
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
+  ],
+  "functions": {
+    "app.py": {
+      "maxDuration": 10
+    }
+  }
 }
